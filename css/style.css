@@ -141,8 +141,9 @@
     height: 40px;
     width: 620px;
     border-radius: 6px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     overflow: hidden;
+    
 }
 
 .nav-search:hover{
@@ -150,19 +151,18 @@
 }
 
 .search-select{
-    background-color: #f3f3f3;
+    background-color: #dfdfdf;
     width: 50px;
-    text-align: center;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border: none;
+    text-align: left;
+    border-right:1px solid black ;
 
 }
 
 .search-input{
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.8rem;
     border: none; 
+    padding: 7px;
 }
 
 .search-icon{
@@ -175,6 +175,7 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     color: #0F1111;
+    
 }
 .search-glow {
     box-shadow: 0 0 8px #febd68;
@@ -232,7 +233,21 @@ footer{
     justify-content: center;
     align-items: center;
 }
+.nav-return {
+    gap: 5px; /* space between Returns & Orders */ 
+}
 
+/* Links */
+.nav-return a {
+    text-decoration: none; /* remove underline */
+    color: #ffffff; /* dark text like Amazon */
+    transition: color 0.2s;
+}
+
+.nav-return a:hover {
+    text-decoration: underline; /* underline on hover */
+    
+}
 .cart-count{
     background-color: #f08804;
     color: black;
@@ -241,23 +256,14 @@ footer{
     padding: 2px 6px;
     border-radius: 50%;
     margin-left: 4px;
+    position:absolute;
+    margin-left:-10px ;
+    margin-top:-10px;
 }
 
 .cart-icon{
     position:relative;
     margin-left:20px;
-}
-
-#cart-count{
-    position:absolute;
-    top:-8px;
-    right:-12px;
-    background:#f08804;
-    color:#000;
-    font-size:12px;
-    font-weight:bold;
-    padding:2px 6px;
-    border-radius:50%;
 }
 
 .nav-cart i{
@@ -270,7 +276,6 @@ footer{
 }
 
 
-/* panel */
 /* PANEL (Amazon Style) */
 .panel{
     height: 40px;
@@ -382,51 +387,118 @@ footer{
     background-color: #37475a;
 }
 /* OVERLAY */
-.mega-menu-overlay{
+
+/* Overlay */
+.menu-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
     display: none;
     z-index: 998;
 }
 
-/* MEGA MENU */
-.mega-menu{
+/* Mega Menu */
+.mega-menu {
     position: fixed;
     top: 0;
-    left: -320px;
-    width: 320px;
-    height: 100vh;
+    left: -365px;
+    width: 365px;
+    height: 100%;
     background: #fff;
-    box-shadow: 4px 0 12px rgba(0,0,0,0.25);
-    padding: 15px;
     z-index: 999;
     transition: left 0.3s ease;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
 }
 
-.mega-menu h3{
-    font-size: 1rem;
-    margin: 15px 0 5px;
-    color: #111;
+/* Header */
+.menu-header {
+    background: #232f3e;
+    color: #fff;
+    padding: 15px;
+    
+    font-size: 18px;
+    font-weight: bold;
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu-text{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
 }
 
-.mega-menu p{
-    padding: 8px 5px;
-    font-size: 0.9rem;
+.menu-main{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+/* Close button */
+.menu-close {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.menu-close:hover {
+    background: rgba(255,255,255,0.15);
+}
+/* Avatar icon */
+.avatar {
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.avatar i {
+    color: #232f3e;
+    font-size: 18px;
+}
+
+
+/* Content */
+.menu-content {
+    padding: 15px;
+}
+
+.menu-content h3 {
+    font-size: 16px;
+    margin: 15px 0 8px;
+}
+
+.menu-content p {
+    font-size: 14px;
+    padding: 8px 0;
     cursor: pointer;
 }
 
-.mega-menu p:hover{
+.menu-content p:hover {
     background: #f3f3f3;
-    color: #c7511f;
 }
 
-/* ACTIVE STATE */
-.mega-menu.active{
+.menu-content hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* Active */
+.mega-menu.open {
     left: 0;
 }
 
-.mega-menu-overlay.active{
+.menu-overlay.show {
     display: block;
 }
 

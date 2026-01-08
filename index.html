@@ -28,8 +28,34 @@
             </div>
 
             <div class="nav-search border ">
-                <select name="option1" id="option2" class="search-select">
+
+                <select name="category" id="option" class="search-select border">
                     <option value="option1">All</option>
+                    <option value="option2">All Category</option>
+                    <option value="option3">Alexa Skill</option>
+                    <option value="option4">Amazon Device</option>
+                    <option value="option5">Amazon Fashion</option>
+                    <option value="option6">Amazon Meat</option>
+                    <option value="option7">Amazon Fresh Meat</option>
+                    <option value="option8">Amazon Pharmacy</option>
+                    <option value="option9">Applicance</option>
+                    <option value="option10">Aapps & Game</option>
+                    <option value="option11">Baby</option>
+                    <option value="option12">Beauty</option>
+                    <option value="option13">Book</option>
+                    <option value="option14">Cars & Motorebike</option>
+                    <option value="option15">Clothes & Accessories</option>
+                    <option value="option16">Electronics</option>
+                    <option value="option17">Toys</option>
+                    <option value="option18">Furniture</option>
+                    <option value="option19">Baby</option>
+                    <option value="option20">Beauty</option>
+                    <option value="option21">Book</option>
+                    <option value="option22">Cars & Motorebike</option>
+                    <option value="option23">Clothes & Accessories</option>
+                    <option value="option24">Electronics</option>
+                    <option value="option25">Toys</option>
+                    <option value="option26">Furniture</option>
                 </select>
 
                 <input type="text" name="text" id="text" placeholder="Search Amazon" class="search-input">
@@ -81,7 +107,6 @@
                 </p>
             </div>
 
-
             <div class="nav-cart border">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count">0</span>
@@ -94,24 +119,44 @@
 
 
         </div>
-        <div class="mega-menu-overlay"></div>
+        <!-- Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
 
-        <div class="mega-menu">
-            <h3>Trending</h3>
-            <p>Best Sellers</p>
-            <p>New Releases</p>
-            <p>Movers & Shakers</p>
+        <!-- Mega Menu -->
+        <div class="mega-menu" id="megaMenu">
 
-            <h3>Shop By Category</h3>
-            <p>Mobiles & Accessories</p>
-            <p>Electronics</p>
-            <p>Fashion</p>
-            <p>Home & Kitchen</p>
-            <p>Beauty & Personal Care</p>
+            <!-- Header -->
+            <div class="menu-header">
+                <div class="menu-main">
+                <div class="avatar"> <i class="fa-solid fa-user"></i></div>
+                <a href="login.html" class="menu-text"><span>Hello, sign in</span></a>
+                </div>
+                <div class="menu-close" onclick="closeMenu()">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+
+            <!-- Menu Content -->
+            <div class="menu-content">
+                <h3>Trending</h3>
+                <p>Best Sellers</p>
+                <p>New Releases</p>
+                <p>Movers & Shakers</p>
+
+                <hr>
+
+                <h3>Shop By Category</h3>
+                <p>Mobiles & Accessories</p>
+                <p>Electronics</p>
+                <p>Fashion</p>
+                <p>Home & Kitchen</p>
+                <p>Beauty & Personal Care</p>
+            </div>
         </div>
 
+
         <div class="panel">
-            <div class="panel1">
+            <div class="panel1 nav-all border" onclick="openMenu()">
                 <i class="fa-solid fa-bars"></i>
                 All
             </div>
@@ -189,7 +234,7 @@
                     <h2>Personal Care</h2>
                     <img src="images/box1_image.jpg" class="category-img" alt="">
                     <p class="see-more">See more</p>
-                </a>  
+                </a>
             </div>
         </div>
 
@@ -200,7 +245,7 @@
                     <img src="images/box2.png" class="category-img" alt="">
                     <p class="see-more">See more</p>
                 </a>
-                
+
             </div>
         </div>
 
@@ -211,8 +256,8 @@
                     <img src="images/box3..png" class="category-img" alt="">
                     <p class="see-more">See more</p>
                 </a>
-                
-                
+
+
             </div>
         </div>
 
@@ -221,9 +266,9 @@
                 <a href="products.html?category=electronics" class="category-card">
                     <H2>Electronics</H2>
                     <img src="images/box4.png" class="category-img" alt="">
-                <p class="see-more">See more</p>
+                    <p class="see-more">See more</p>
                 </a>
-                
+
             </div>
         </div>
     </div>
@@ -235,9 +280,9 @@
 
                     <H2>Beauty Pics</H2>
                     <img src="images/box5.png" class="category-img" alt="">
-                <p class="see-more">See more</p>
+                    <p class="see-more">See more</p>
                 </a>
-               
+
             </div>
         </div>
 
@@ -248,8 +293,8 @@
                     <img src="images/box6.png" class="category-img" alt="">
                     <p class="see-more">See more</p>
                 </a>
-                
-                
+
+
             </div>
         </div>
 
@@ -260,8 +305,8 @@
                     <img src="images/box1.png" class="category-img" alt="">
                     <p class="see-more">See more</p>
                 </a>
-                
-            
+
+
             </div>
         </div>
 
@@ -269,9 +314,9 @@
             <div class="box1-content">
                 <a href="products.html?category=clothes" class="category-card">
                     <h2>Clothes</h2>
-                  <img src="images/image.png" class="category-img" alt="">
-                <p class="see-more">See more</p>
-                </a>      
+                    <img src="images/image.png" class="category-img" alt="">
+                    <p class="see-more">See more</p>
+                </a>
             </div>
 
         </div>
@@ -492,20 +537,23 @@
 
 
 <script>
-    const panelAll = document.querySelector(".panel1");
-    const megaMenu = document.querySelector(".mega-menu");
-    const overlay = document.querySelector(".mega-menu-overlay");
+    function openMenu() {
+        document.getElementById("megaMenu").classList.add("open");
+        document.getElementById("menuOverlay").classList.add("show");
+    }
 
-    panelAll.addEventListener("click", () => {
-        megaMenu.classList.add("active");
-        overlay.classList.add("active");
-    });
+    function closeMenu() {
+        document.getElementById("megaMenu").classList.remove("open");
+        document.getElementById("menuOverlay").classList.remove("show");
+    }
 
-    overlay.addEventListener("click", () => {
-        megaMenu.classList.remove("active");
-        overlay.classList.remove("active");
-    });
+    document.getElementById("menuOverlay").addEventListener("click", closeMenu);
 </script>
+
+function closeMenu() {
+document.getElementById("megaMenu").classList.remove("open");
+document.getElementById("menuOverlay").classList.remove("show");
+}
 
 <script>
     const accountToggle = document.getElementById("accountToggle");
