@@ -39,15 +39,48 @@
                 </div>
             </div>
 
-            <div class="nav-signin border">
-                <p class="nav-first">Hello , sign in</p>
-                <p class="nav-second">Account & Lists</p>
+            <div class="nav-signin">
+                <div>
+                    <p class="nav-first border">
+                        <a href="login.html">Hello,Sign in</a>
+                    </p>
+                </div>
+
+                <p class="nav-second border" id="accountToggle">
+                    Account & Lists <i class="fa-solid fa-caret-down"></i>
+                </p>
+
+                <div class="account-dropdown" id="accountDropdown">
+                    <a href="login.html" class="signin-btn">Sign in</a>
+                    <hr>
+
+                    <div class="account-links">
+                        <div>
+                            <h4>Your Lists</h4>
+                            <a href="#">Create a Wish List</a>
+                            <a href="#">Wish from Any Website</a>
+                        </div>
+
+                        <div>
+                            <h4>Your Account</h4>
+                            <a href="orders.html">Your Orders</a>
+                            <a href="#">Your Addresses</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+
+
             <div class="nav-return border">
-                <p class="nav-first">Returns</p>
-                <p class="nav-second">& Orders</p>
+                <p class="nav-first">
+                    <a href="order.html">Returns</a>
+                </p>
+                <p class="nav-second">
+                    <a href="order.html">& Orders</a>
+                </p>
             </div>
+
 
             <div class="nav-cart border">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -61,6 +94,21 @@
 
 
         </div>
+        <div class="mega-menu-overlay"></div>
+
+        <div class="mega-menu">
+            <h3>Trending</h3>
+            <p>Best Sellers</p>
+            <p>New Releases</p>
+            <p>Movers & Shakers</p>
+
+            <h3>Shop By Category</h3>
+            <p>Mobiles & Accessories</p>
+            <p>Electronics</p>
+            <p>Fashion</p>
+            <p>Home & Kitchen</p>
+            <p>Beauty & Personal Care</p>
+        </div>
 
         <div class="panel">
             <div class="panel1">
@@ -69,15 +117,58 @@
             </div>
 
             <div class="panel2">
-                <p>Today's Deals</p>
-                <p>Customer Service</p>
-                <p>Registry</p>
-                <p>Gift Cards</p>
-                <p>Sells</p>
+                <div class="panel-item">
+                    <p>Today's Deals</p>
+                    <div class="dropdown">
+                        <span>Lightning Deals</span>
+                        <span>Deal of the Day</span>
+                        <span>Best Deals</span>
+                    </div>
+                </div>
+
+                <div class="panel-item">
+                    <p>Customer Service</p>
+                    <div class="dropdown">
+                        <span>Help Center</span>
+                        <span>Returns</span>
+                        <span>Track Order</span>
+                        <span>
+                            <a href="contact.html">Contact Us</a>
+                        </span>
+
+                    </div>
+                </div>
+
+                <div class="panel-item">
+                    <p>Registry</p>
+                    <div class="dropdown">
+                        <span>Create Registry</span>
+                        <span>Find Registry</span>
+                    </div>
+                </div>
+
+                <div class="panel-item">
+                    <p>Gift Cards</p>
+                    <div class="dropdown">
+                        <span>All Gift Cards</span>
+                        <span>eGift Cards</span>
+                        <span>Corporate Gifts</span>
+                    </div>
+                </div>
+
+                <div class="panel-item">
+                    <p>Sells</p>
+                    <div class="dropdown">
+                        <span>Start Selling</span>
+                        <span>Seller Central</span>
+                    </div>
+                </div>
             </div>
 
+
             <div class="panel3">
-                Shop deal in electronics
+                Shop deals in Electronics
+
             </div>
         </div>
     </header>
@@ -90,37 +181,49 @@
         </div>
     </div>
 
+
     <div class="shop-section">
         <div class=" box">
             <div class="box1-content">
-                <H2>Health & Personal Care</H2>
-                <div class="img1" style="background-image: url('images/box2.png');"> </div>
-                <p class="see-more">See more</p>
-            </div>
-
-        </div>
-
-        <div class=" box">
-            <div class="box1-content">
-                <H2>New Arriavals In Toys</H2>
-                <div class="img1" style="background-image: url('images/box1.png');"> </div>
-                <p class="see-more">See more</p>
+                <a href="products.html?category=personalcare" class="category-card">
+                    <h2>Personal Care</h2>
+                    <img src="images/box1_image.jpg" class="category-img" alt="">
+                    <p class="see-more">See more</p>
+                </a>  
             </div>
         </div>
 
         <div class=" box">
             <div class="box1-content">
-                <H2>Furniture</H2>
-                <div class="img1" style="background-image: url('images/box3..png');"> </div>
-                <p class="see-more">See more</p>
+                <a href="products.html?category=toys" class="category-card">
+                    <H2>New Arriavals In Toys</H2>
+                    <img src="images/box2.png" class="category-img" alt="">
+                    <p class="see-more">See more</p>
+                </a>
+                
             </div>
         </div>
 
         <div class=" box">
             <div class="box1-content">
-                <H2>Electronics</H2>
-                <div class="img1" style="background-image: url('images/box4.png');"> </div>
+                <a href="products.html?category=furniture" class="category-card">
+                    <H2>Furniture</H2>
+                    <img src="images/box3..png" class="category-img" alt="">
+                    <p class="see-more">See more</p>
+                </a>
+                
+                
+            </div>
+        </div>
+
+        <div class=" box">
+            <div class="box1-content">
+                <a href="products.html?category=electronics" class="category-card">
+                    <H2>Electronics</H2>
+                    <img src="images/box4.png" class="category-img" alt="">
                 <p class="see-more">See more</p>
+                </a>
+                
             </div>
         </div>
     </div>
@@ -128,51 +231,53 @@
     <div class="shop-section">
         <div class=" box">
             <div class="box1-content">
-                <H2>Beauty Pics</H2>
-                <div class="img1" style="background-image: url('images/box5.png');"> </div>
+                <a href="products.html?category=beauty" class="category-card">
+
+                    <H2>Beauty Pics</H2>
+                    <img src="images/box5.png" class="category-img" alt="">
                 <p class="see-more">See more</p>
+                </a>
+               
             </div>
         </div>
 
         <div class=" box">
             <div class="box1-content">
-                <H2>Pets Care</H2>
-                <div class="img1" style="background-image: url('images/box6.png');"> </div>
-                <p class="see-more">See more</p>
+                <a href="products.html?category=petcare" class="category-card">
+                    <H2>Pets Care</H2>
+                    <img src="images/box6.png" class="category-img" alt="">
+                    <p class="see-more">See more</p>
+                </a>
+                
+                
             </div>
         </div>
 
         <div class=" box">
             <div class="box1-content">
-                <H2>Discover fashion trends</H2>
-                <div class="img1" style="background-image: url('images/box1_image.jpg');"> </div>
-                <p class="see-more">See more</p>
+                <a href="products.html?category=DiscoverFashion" class="category-card">
+                    <H2>Discover fashion trends</H2>
+                    <img src="images/box1.png" class="category-img" alt="">
+                    <p class="see-more">See more</p>
+                </a>
+                
+            
             </div>
         </div>
 
         <div class="box">
             <div class="box1-content">
-                <H2>Clothes</H2>
-                <div class="img1" style="background-image: url('images/image.png');"> </div>
+                <a href="products.html?category=clothes" class="category-card">
+                    <h2>Clothes</h2>
+                  <img src="images/image.png" class="category-img" alt="">
                 <p class="see-more">See more</p>
+                </a>      
             </div>
 
         </div>
     </div>
 
-    <div class="product-modal" id="productModal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
 
-            <img id="modalImg" src="" alt="Product image">
-
-            <h2 id="modalTitle"></h2>
-            <p class="price" id="modalPrice"></p>
-            <p id="modalDesc"></p>
-
-            <button class="add-cart-btn">Add to Cart</button>
-        </div>
-    </div>
 
     <footer>
         <div class="footerpanel1">
@@ -260,7 +365,7 @@
         setTimeout(() => cart.classList.remove("cart-animate"), 400);
     });
 </script>
-/* for search glow*/
+
 <script>
     const searchInput = document.querySelector(".search-input");
     const searchBox = document.querySelector(".nav-search");
@@ -274,7 +379,7 @@
     });
 </script>
 
-/* for dark mode*/
+
 <script>
     const toggleBtn = document.querySelector(".dark-toggle");
     const body = document.body;
@@ -292,25 +397,17 @@
     });
 </script>
 
-/* car count*/
+
 <script>
-    let cartCount = 0;
-    const cartDisplay = document.querySelector(".cart-count");
-    const productBoxes = document.querySelectorAll(".box");
-
-    productBoxes.forEach(box => {
-        box.addEventListener("click", () => {
-            cartCount++;
-            cartDisplay.textContent = cartCount;
-
-            // small animation
-            cartDisplay.style.transform = "scale(1.3)";
-            setTimeout(() => {
-                cartDisplay.style.transform = "scale(1)";
-            }, 200);
-        });
+    document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("productModal");
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            modal.style.display = "none";
+        }
     });
 </script>
+
+
 
 <script>
     const products = [
@@ -350,7 +447,7 @@
     const boxes = document.querySelectorAll(".box");
 
     boxes.forEach((box, index) => {
-        box.querySelector("p").addEventListener("click", () => {
+        box.querySelector(".see-more").addEventListener("click", () => {
             modalImg.src = products[index].img;
             modalTitle.textContent = products[index].title;
             modalPrice.textContent = products[index].price;
@@ -369,6 +466,7 @@
         }
     });
 </script>
+
 <script>
     const addCartBtn = document.querySelector(".add-cart-btn");
 
@@ -391,5 +489,39 @@
         }, 1500);
     });
 </script>
+
+
+<script>
+    const panelAll = document.querySelector(".panel1");
+    const megaMenu = document.querySelector(".mega-menu");
+    const overlay = document.querySelector(".mega-menu-overlay");
+
+    panelAll.addEventListener("click", () => {
+        megaMenu.classList.add("active");
+        overlay.classList.add("active");
+    });
+
+    overlay.addEventListener("click", () => {
+        megaMenu.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+</script>
+
+<script>
+    const accountToggle = document.getElementById("accountToggle");
+    const accountDropdown = document.getElementById("accountDropdown");
+
+    accountToggle.addEventListener("click", (e) => {
+        e.stopPropagation(); // prevents body click
+        accountDropdown.style.display =
+            accountDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        accountDropdown.style.display = "none";
+    });
+</script>
+
+
 
 </html>

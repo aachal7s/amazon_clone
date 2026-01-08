@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Wishlist | Amazon Clone</title>
+<style>
+body{font-family:Arial;background:#f3f3f3;margin:0}
+.container{max-width:1000px;margin:30px auto}
+.wishlist-item{
+    background:#fff;
+    display:flex;
+    gap:20px;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+}
+.wishlist-item img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+}
+.price{color:#B12704;font-weight:bold}
+button{
+    padding:6px 12px;
+    border:none;
+    background:#FFD814;
+    border-radius:20px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Your Wishlist</h2>
+    <div id="wishlistList"></div>
+</div>
+
+<script>
+const wishlistList = document.getElementById("wishlistList");
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+if(wishlist.length === 0){
+    wishlistList.innerHTML = "<p>Your wishlist is empty.</p>";
+}
+
+wishlist.forEach((p,index)=>{
+    wishlistList.innerHTML += `
+        <div class="wishlist-item">
+            <img src="${p.img}">
+            <div>
+                <h3>${p.name}</h3>
+                <div class="price">${p.price}</div>
+                <button onclick="removeWish(${index})">Remove</button>
+            </div>
+        </div>
+    `;
+});
+
+function removeWish(index){
+    wishlist.splice(index,1);
+    localStorage.setItem("wishlist",JSON.stringify(wishlist));
+    location.reload();
+}
+</script>
+</body>
+</html>

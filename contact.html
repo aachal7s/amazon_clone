@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body { background:#eaeaea; font-family:Arial; }
+        .contact {
+            width:420px; margin:60px auto;
+            background:#fff; padding:25px; border-radius:8px;
+        }
+        input, textarea, button {
+            width:100%; padding:10px; margin:10px 0;
+        }
+        button { background:#ff9900; border:none; }
+    </style>
+</head>
+<body>
+     <div class="navbar">
+            <div class="navlogo border">
+                <div class="logo"></div>
+            </div>
+
+            <div class="navlocation border">
+                <p class="add-1">dilver to</p>
+                <div class="icon ">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-2">India</p>
+                </div>
+            </div>
+
+            <div class="nav-search border ">
+                <select name="option1" id="option2" class="search-select">
+                    <option value="option1">All</option>
+                </select>
+
+                <input type="text" name="text" id="text" placeholder="Search Amazon" class="search-input">
+
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin">
+                <div>
+                    <p class="nav-first border">
+                        <a href="login.html">Hello,Sign in</a>
+                    </p>
+                </div>
+
+                <p class="nav-second border" id="accountToggle">
+                    Account & Lists <i class="fa-solid fa-caret-down"></i>
+                </p>
+
+                <div class="account-dropdown" id="accountDropdown">
+                    <a href="login.html" class="signin-btn">Sign in</a>
+                    <hr>
+
+                    <div class="account-links">
+                        <div>
+                            <h4>Your Lists</h4>
+                            <a href="#">Create a Wish List</a>
+                            <a href="#">Wish from Any Website</a>
+                        </div>
+
+                        <div>
+                            <h4>Your Account</h4>
+                            <a href="orders.html">Your Orders</a>
+                            <a href="#">Your Addresses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="nav-return border">
+                <p class="nav-first">
+                    <a href="order.html">Returns</a>
+                </p>
+                <p class="nav-second">
+                    <a href="order.html">& Orders</a>
+                </p>
+            </div>
+
+
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+                Cart
+            </div>
+
+            <div class="dark-toggle border" title="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+
+        </div>
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <input placeholder="Name">
+        <input placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <button>Send Message</button>
+    </div>
+</body>
+</html>

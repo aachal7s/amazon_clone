@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products | Amazon Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #131921;
+            color: #fff;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        /* PAGE */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            margin: 10px 0 20px;
+        }
+
+        /* PRODUCT GRID */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+        }
+
+        .price {
+            color: #B12704;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .cart-btn {
+            background: #FFD814;
+        }
+
+        .wishlist-btn {
+            background: #fff;
+            border: 1px solid #D5D9D9;
+        }
+        /* CART COUNT BADGE (Amazon-style) */
+.nav-cart{
+    position: relative;
+}
+
+#cartCount{
+    position: absolute;
+    top: -6px;
+    left: 18px;
+    background-color: #f08804; /* Amazon orange */
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0 4px;
+}
+/* ADD TO CART POPUP */
+.cart-popup{
+    position: fixed;
+    top: 90px;
+    right: -350px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    font-size: 14px;
+    z-index: 9999;
+    transition: right 0.4s ease;
+}
+
+.cart-popup i{
+    color: #067D62;
+    font-size: 20px;
+}
+
+.cart-popup a{
+    margin-left: 10px;
+    color: #007185;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart-popup a:hover{
+    text-decoration: underline;
+}
+
+/* SHOW POPUP */
+.cart-popup.show{
+    right: 50%;
+}
+/* ADD TO WISHLIST POPUP */
+.wishlist-popup{
+    position: fixed;
+    top: 90px;
+    right: -350px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    font-size: 14px;
+    z-index: 9999;
+    transition: right 0.4s ease;
+}
+
+.wishlist-popup i{
+    color: #FF3D00; /* red heart color */
+    font-size: 20px;
+}
+
+.wishlist-popup a{
+    margin-left: 10px;
+    color: #007185;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.wishlist-popup a:hover{
+    text-decoration: underline;
+}
+
+/* SHOW POPUP */
+.wishlist-popup.show{
+    right: 50%;
+}
+
+/* CART BUTTON */
+.product-card .cart-btn{
+    background-color: #FFD814;
+    color: #111;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.product-card .cart-btn:hover{
+    background-color: #F7CA00; /* darker yellow on hover */
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* WISHLIST BUTTON */
+.product-card .wishlist-btn{
+    background-color: #fff;
+    border: 1px solid #D5D9D9;
+    color: #111;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.product-card .wishlist-btn:hover{
+    
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Optional: add heart icon effect */
+.product-card .wishlist-btn::before{
+    
+    margin-right: 6px;
+    transition: transform 0.2s ease;
+}
+
+.product-card .wishlist-btn:hover::before{
+    
+    transform: scale(1.2);
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navlogo border">
+            <div class="logo"></div>
+        </div>
+
+        <div class="navlocation border">
+            <p class="add-1">dilver to</p>
+            <div class="icon ">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="add-2">India</p>
+            </div>
+        </div>
+
+        <div class="nav-search border ">
+            <select name="option1" id="option2" class="search-select">
+                <option value="option1">All</option>
+            </select>
+
+            <input type="text" name="text" id="text" placeholder="Search Amazon" class="search-input">
+
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <div class="nav-signin">
+            <div>
+                <p class="nav-first border">
+                    <a href="login.html">Hello,Sign in</a>
+                </p>
+            </div>
+
+            <p class="nav-second border" id="accountToggle">
+                Account & Lists <i class="fa-solid fa-caret-down"></i>
+            </p>
+
+            <div class="account-dropdown" id="accountDropdown">
+                <a href="login.html" class="signin-btn">Sign in</a>
+                <hr>
+
+                <div class="account-links">
+                    <div>
+                        <h4>Your Lists</h4>
+                        <a href="#">Create a Wish List</a>
+                        <a href="#">Wish from Any Website</a>
+                    </div>
+
+                    <div>
+                        <h4>Your Account</h4>
+                        <a href="orders.html">Your Orders</a>
+                        <a href="#">Your Addresses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="nav-return border">
+            <p class="nav-first">
+                <a href="order.html">Returns</a>
+            </p>
+            <p class="nav-second">
+                <a href="order.html">& Orders</a>
+            </p>
+        </div>
+
+
+
+        <a href="cart.html">
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+
+                Cart
+            </div>
+        </a>
+       <a href="wishlist.html">
+    <i class="fa-regular fa-heart"></i>
+</a>
+
+
+        <div class="dark-toggle border" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+        </div>
+
+
+    </div>
+    <div class="container">
+        <h2 id="categoryTitle"></h2>
+        <div class="products" id="productList"></div>
+    </div>
+<!-- ADD TO CART POPUP -->
+<div id="cartPopup" class="cart-popup">
+    <i class="fa-solid fa-circle-check"></i>
+    <span>Added to Cart</span>
+    <a href="cart.html">View Cart</a>
+</div>
+<!-- ADD TO WISHLIST POPUP -->
+
+<div id="wishlistPopup" class="wishlist-popup">
+    <i class="fa-regular fa-heart"></i>
+    <span>Added to Wishlist</span>
+    <a href="wishlist.html">View Wishlist</a>
+</div>
+
+
+    <script>
+        // ALL PRODUCTS DATA
+        const products = {
+            clothes: [
+                // MEN
+                { name: "Men T-Shirt", img: "images/men_wear1.jpg", price: "₹599", type: "men" },
+                { name: "Men Shirt", img: "images/men_wear2.jpg", price: "₹1,299", type: "men" },
+                { name: "Men Jeans", img: "images/men_wear3.jpg", price: "₹1,499", type: "men" },
+                { name: "Men Jacket", img: "images/men_wear4.jpg", price: "₹2,499", type: "men" },
+
+                // WOMEN
+                { name: "Women Dress", img: "images/women_wear1.jpg", price: "₹1,299", type: "women" },
+                { name: "Women Top", img: "images/women_wear2.jpg", price: "₹899", type: "women" },
+                { name: "Women Saree", img: "images/women_wear3.jpg", price: "₹2,999", type: "women" },
+                { name: "Women Kurti", img: "images/women_wear4.jpg", price: "₹1,199", type: "women" },
+
+                // KIDS
+                { name: "Kids Wear Set", img: "images/kids_wear1.jpg", price: "₹899", type: "kids" },
+                { name: "Kids T-Shirt", img: "images/kids_wear2.jpg", price: "₹599", type: "kids" },
+                { name: "Kids Shorts", img: "images/kids_wear3.jpg", price: "₹499", type: "kids" },
+                { name: "Kids Jacket", img: "images/kids_wear4.jpg", price: "₹1,099", type: "kids" }
+            ],
+
+            electronics: [
+                { name: "Wireless Headphones", img: "images/electronic_headphone.jpg", price: "₹1,299" },
+                { name: "Smart Watch", img: "images/e_smartwatch1.jpg", price: "₹4,999" },
+                { name: "Smart watch model", img: "images/e_smartwatch2.jpg", price: "₹2,499" },
+                { name: "Speaker", img: "images/e_speaker1.jpg", price: "₹1,299" },
+                { name: "Electronic speaker", img: "images/e_speaker2.jpg", price: "₹4,999" },
+                { name: "Heater", img: "images/e_item.jpg", price: "₹2,499" },
+                { name: "GenZ Headphone", img: "images/e_item2.jpg", price: "₹1,299" },
+                { name: "Camera", img: "images/e_item3.jpg", price: "₹4,999" },
+                { name: "Freez", img: "images/e_item4.jpg", price: "₹2,499" }
+            ],
+
+            personalcare: [
+                { name: "Bath Set", img: "images/personal_care1.jpg", price: "₹249" },
+                { name: "P_Shampoo", img: "images/personal_care2.jpg", price: "₹399" },
+                { name: "Shampoo", img: "images/personal_care3.jpg", price: "₹299" },
+                { name: "Face Wash", img: "images/personal_care4.jpg", price: "₹249" },
+                { name: "Face Wash1", img: "images/personal_care5.jpg", price: "₹399" },
+                { name: "Lotion", img: "images/personal_care6.jpg", price: "₹249" },
+                { name: "softning lotion", img: "images/personal_care7.jpg", price: "₹399" },
+                { name: "Face Wash", img: "images/personal_care8.jpg", price: "₹249" },
+                { name: "Shampoo", img: "images/personal_care1.jpg", price: "₹399" },
+                { name: "Silk Shampoo", img: "images/personal_care3.jpg", price: "₹249" },
+                { name: "Shampoo", img: "images/personal_care5.jpg", price: "₹399" },
+            ],
+
+            beauty: [
+                { name: "Lipstick", img: "images/beauty1.jpg", price: "₹1,999" },
+                { name: "Lipstick", img: "images/beauty2.jpg", price: "₹699" },
+                { name: "Eye linear", img: "images/beauty3.png", price: "₹1,999" },
+                { name: "Eye linear", img: "images/beauty4.png", price: "₹1,999" },
+                { name: "Makeup Kit", img: "images/beauty5.jpg", price: "₹1,999" },
+                { name: "Makeup Kit", img: "images/beauty6.jpg", price: "₹1,999" },
+                { name: "Foundation", img: "images/beauty7.jpg", price: "₹1,999" },
+                { name: "Foundation", img: "images/beauty8.jpg", price: "₹1,999" },
+
+            ],
+
+            furniture: [
+                { name: "Office Chair", img: "images/furniture1.jpg", price: "₹6,999" },
+                { name: "Wooden Table", img: "images/furniture2.jpg", price: "₹8,499" },
+                { name: "Office Chair", img: "images/furniture3.jpg", price: "₹6,999" },
+                { name: "Wooden Table", img: "images/furniture4.jpg", price: "₹8,499" },
+                { name: "Office Chair", img: "images/furniture5.jpg", price: "₹6,999" },
+                { name: "Wooden Table", img: "images/furniture6.jpg", price: "₹8,499" },
+                { name: "Office Chair", img: "images/furniture7.jpg", price: "₹6,999" },
+                { name: "Wooden Table", img: "images/furniture8.jpg", price: "₹8,499" },
+                { name: "Office Chair", img: "images/furniture9.jpg", price: "₹6,999" },
+                { name: "Wooden Table", img: "images/furniture1.jpg", price: "₹8,499" },
+            ],
+
+            petcare: [
+                { name: "Dog Food", img: "images/pet_care1.jpg", price: "₹899" },
+                { name: "Pet Shampoo", img: "images/pet_care2.jpg", price: "₹349" },
+                { name: "Dog Food", img: "images/pet_care3.jpg", price: "₹899" },
+                { name: "Pet Shampoo", img: "images/pet_care4.jpg", price: "₹349" },
+                { name: "Dog Food", img: "images/pet_care5.jpg", price: "₹899" },
+                { name: "Pet Shampoo", img: "images/pet_care6.jpg", price: "₹349" },
+                { name: "Dog Food", img: "images/pet_care6.jpg", price: "₹899" },
+                { name: "Pet Shampoo", img: "images/pet_care5.jpg", price: "₹349" },
+                { name: "Dog Food", img: "images/pet_care1.jpg", price: "₹899" },
+                { name: "Pet Shampoo", img: "images/pet_care5.jpg", price: "₹349" },
+                { name: "Dog Food", img: "images/pet_care3.jpg", price: "₹899" },
+                { name: "Pet Shampoo", img: "images/pet_care6.jpg", price: "₹349" }
+            ],
+
+            toys: [
+                { name: "Toys1", img: "images/toy1.jpg", price: "₹1,799" },
+                 { name: "Toys2", img: "images/toy2.jpg", price: "₹1,799" },
+                  { name: "Toys3", img: "images/toy3.jpg", price: "₹1,799" },
+                   { name: "Toys4", img: "images/toy4.jpg", price: "₹1,799" },
+                    { name: "Toys5", img: "images/toy5.jpg", price: "₹1,799" },
+                     { name: "Toys6", img: "images/toy6.jpg", price: "₹1,799" },
+                      { name: "Toys7", img: "images/toy7.jpg", price: "₹1,799" },
+                       { name: "Toys8", img: "images/toy8.jpg", price: "₹1,799" },
+                        { name: "Toys9", img: "images/toy1.jpg", price: "₹1,799" },
+                         { name: "Toys10", img: "images/toy3.jpg", price: "₹1,799" },
+                          { name: "Toys11", img: "images/toy5.jpg", price: "₹1,799" },
+                           { name: "Toys12", img: "images/toy1.jpg", price: "₹1,799" },
+              
+            ],
+
+             DiscoverFashion: [
+                { name: "Fashion Trend1", img: "images/trend1.jpg", price: "₹1,799" },
+               { name: "Fashion Trend2", img: "images/trend2.jpg", price: "₹1,799" },
+               { name: "Fashion Trend3", img: "images/trend3.jpg", price: "₹1,799" },
+               { name: "Fashion Trend4", img: "images/trend4.jpg", price: "₹1,799" },
+               { name: "Fashion Trend5", img: "images/trend5.jpg", price: "₹1,799" },
+               { name: "Fashion Trend6", img: "images/trend1.jpg", price: "₹1,799" },
+               { name: "Fashion Trend7", img: "images/trend2.jpg", price: "₹1,799" },
+               { name: "Fashion Trend8", img: "images/trend4.jpg", price: "₹1,799" },
+               { name: "Fashion Trend9", img: "images/trend2.jpg", price: "₹1,799" },
+               { name: "Fashion Trend10", img: "images/trend1.jpg", price: "₹1,799" },
+               { name: "Fashion Trend11", img: "images/trend3.jpg", price: "₹1,799" },
+               { name: "Fashion Trend12", img: "images/trend5.jpg", price: "₹1,799" },
+               { name: "Fashion Trend13", img: "images/trend1.jpg", price: "₹1,799" },
+            ]
+        };
+
+        // GET CATEGORY FROM URL
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get("category");
+
+        const productList = document.getElementById("productList");
+        const title = document.getElementById("categoryTitle");
+
+        title.textContent = category
+            ? category.replace(/([a-z])([A-Z])/g, '$1 $2')
+                .replace(/^./, c => c.toUpperCase())
+            : "Products";
+
+        if (products[category]) {
+            products[category].forEach(p => {
+                productList.innerHTML += `
+            <div class="product-card">
+                <img src="${p.img}">
+                <h3>${p.name}</h3>
+                <div class="price">${p.price}</div>
+                <button class="cart-btn" onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button>
+<button class="wishlist-btn" onclick='addToWishlist(${JSON.stringify(p)})'>♡ Add to Wishlist</button>
+
+            </div>
+        `;
+            });
+            
+
+function addToCart(product){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+    showCartPopup();
+}
+
+function updateCartCount(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cartCount").innerText = cart.length;
+}
+
+function showCartPopup(){
+    const popup = document.getElementById("cartPopup");
+    popup.classList.add("show");
+
+    setTimeout(()=>{
+        popup.classList.remove("show");
+    },3000);
+}
+window.onload = updateCartCount;
+      
+
+function addToWishlist(product){
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    // Check if already in wishlist
+    const exists = wishlist.find(item => item.name === product.name);
+    if(!exists){
+        wishlist.push(product);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        showWishlistPopup();
+    } else {
+        alert("Already in Wishlist!");
+    }
+}
+
+function showWishlistPopup(){
+    const popup = document.getElementById("wishlistPopup");
+    popup.classList.add("show");
+
+    setTimeout(()=>{
+        popup.classList.remove("show");
+    },3000);
+}
+
+
+        } else {
+            productList.innerHTML = "<p>No products found.</p>";
+        }
+    </script>
+
+</body>
+
+</html>

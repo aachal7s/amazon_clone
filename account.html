@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account - Amazon Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f1f3f6;
+        }
+
+        .navbar {
+            background: #131921;
+            color: #fff;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffa41c;
+        }
+
+        .page-header {
+            padding: 20px 40px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .account-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 40px;
+        }
+
+        .section-card {
+            background: #fff;
+            flex: 1 1 300px;
+            min-width: 280px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .section-card h2 {
+            font-size: 18px;
+            margin: 0 0 8px;
+            color: #131921;
+        }
+
+        .section-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 0 0 12px;
+        }
+
+        .section-card button {
+            background: #ffa41c;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .section-card button:hover {
+            background: #f08804;
+        }
+
+        .account-content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 30px;
+            margin: 20px 40px;
+            display: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .account-content h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #131921;
+            margin-bottom: 15px;
+        }
+
+        .item {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .item:hover {
+            background: #f7f7f7;
+        }
+
+        .item span {
+            font-size: 14px;
+            color: #555;
+            flex: 1;
+        }
+
+        .item i {
+            color: #ffa41c;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        button.small-btn {
+            padding: 4px 8px;
+            font-size: 13px;
+            margin-left: 5px;
+        }
+        /* ===== AMAZON PROFESSIONAL WISHLIST ===== */
+
+.wishlist-item{
+    display:flex;
+    gap:20px;
+    padding:20px 0;
+    border-bottom:1px solid #e6e6e6;
+}
+
+.wishlist-img img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+}
+
+.wishlist-info{
+    flex:1;
+}
+
+.wishlist-info h3{
+    font-size:18px;
+    font-weight:500;
+    margin:0 0 6px;
+    color:#0F1111;
+}
+
+.wishlist-seller{
+    font-size:14px;
+    color:#565959;
+}
+
+.wishlist-stock{
+    font-size:14px;
+    color:#007600;
+    margin:6px 0;
+}
+
+.wishlist-price{
+    font-size:20px;
+    color:#B12704;
+    font-weight:bold;
+    margin:6px 0;
+}
+
+.wishlist-actions{
+    margin-top:12px;
+}
+
+.wishlist-actions button{
+    background:#FFD814;
+    border:1px solid #FCD200;
+    padding:6px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    margin-right:8px;
+}
+
+.wishlist-actions button:hover{
+    background:#F7CA00;
+}
+
+.wishlist-actions .delete-btn{
+    background:#fff;
+    border:1px solid #D5D9D9;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+     <div class="navbar">
+            <div class="navlogo border">
+                <div class="logo"></div>
+            </div>
+
+            <div class="navlocation border">
+                <p class="add-1">dilver to</p>
+                <div class="icon ">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-2">India</p>
+                </div>
+            </div>
+
+            <div class="nav-search border ">
+                <select name="option1" id="option2" class="search-select">
+                    <option value="option1">All</option>
+                </select>
+
+                <input type="text" name="text" id="text" placeholder="Search Amazon" class="search-input">
+
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin">
+                <div>
+                    <p class="nav-first border">
+                        <a href="login.html">Hello,Sign in</a>
+                    </p>
+                </div>
+
+                <p class="nav-second border" id="accountToggle">
+                    Account & Lists <i class="fa-solid fa-caret-down"></i>
+                </p>
+
+                <div class="account-dropdown" id="accountDropdown">
+                    <a href="login.html" class="signin-btn">Sign in</a>
+                    <hr>
+
+                    <div class="account-links">
+                        <div>
+                            <h4>Your Lists</h4>
+                            <a href="#">Create a Wish List</a>
+                            <a href="#">Wish from Any Website</a>
+                        </div>
+
+                        <div>
+                            <h4>Your Account</h4>
+                            <a href="orders.html">Your Orders</a>
+                            <a href="#">Your Addresses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="nav-return border">
+                <p class="nav-first">
+                    <a href="order.html">Returns</a>
+                </p>
+                <p class="nav-second">
+                    <a href="order.html">& Orders</a>
+                </p>
+            </div>
+
+
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+                Cart
+            </div>
+
+            <div class="dark-toggle border" title="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+
+        </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Your Account</h1>
+    </div>
+
+    <!-- ACCOUNT SECTIONS -->
+    <div class="account-section" id="accountSection">
+        <!-- Cards generated dynamically -->
+    </div>
+
+    <!-- CONTENT AREA -->
+    <div class="account-content" id="accountContent"></div>
+<script>
+let cart = [];
+let wishlist = [
+    {
+        img: "images/electronic_headphone.jpg",
+        title: "Noise Wireless Headphones",
+        seller: "Noise India",
+        price: "₹1,299",
+        availability: "In Stock"
+    },
+    {
+        img: "images/smart_watch.jpg",
+        title: "Smart Watch Series 5",
+        seller: "TechStore",
+        price: "₹4,999",
+        availability: "In Stock"
+    }
+];
+</script>
+
+    <script>
+        // DATA
+        let addresses = [
+            { name: "Home", address: "123 MG Road, Bangalore, India" },
+            { name: "Office", address: "456 Electronics City, Bangalore, India" }
+        ];
+// PAYMENT METHODS DATA
+let paymentMethods = [
+    { type:"Visa", name:"Aachal Kumar", number:"**** **** **** 1234", expiry:"12/26" },
+    { type:"MasterCard", name:"Aachal Kumar", number:"**** **** **** 5678", expiry:"08/25" }
+];
+
+   
+    
+
+        const primeBenefits = [
+            "Free 2-Day Shipping",
+            "Exclusive Deals & Discounts",
+            "Prime Video & Music Access",
+            "Early Access to Lightning Deals"
+        ];
+
+        const sections = [
+            { id: 1, title: "Your Orders", desc: "Track, return, or buy things again." },
+            { id: 2, title: "Login & Security", desc: "Edit login, name, and mobile number." },
+            { id: 3, title: "Your Addresses", desc: "Edit or add addresses for orders." },
+            { id: 4, title: "Payment Methods", desc: "Manage your saved payment options." },
+            { id: 5, title: "Your Wish List", desc: "See items you’ve saved for later." },
+            { id: 6, title: "Prime Membership", desc: "View benefits and manage your Prime membership." }
+        ];
+
+        const sectionContainer = document.getElementById("accountSection");
+        const contentArea = document.getElementById("accountContent");
+
+        // GENERATE CARDS
+        sections.forEach(sec => {
+            const card = document.createElement("div");
+            card.className = "section-card";
+            card.innerHTML = `<h2>${sec.title}</h2><p>${sec.desc}</p><button>View</button>`;
+            card.addEventListener("click", () => showContent(sec.id));
+            sectionContainer.appendChild(card);
+        });
+
+        // SHOW CONTENT FUNCTION
+        function showContent(id) {
+            contentArea.style.display = "block";
+            contentArea.innerHTML = "";
+
+            // ADDRESSES
+            if (id === 3) {
+                contentArea.innerHTML = "<h2>Your Addresses</h2>";
+                addresses.forEach((a, index) => {
+                    const div = document.createElement("div");
+                    div.className = "item";
+                    div.innerHTML = `
+                <span>${a.name}: ${a.address}</span>
+                <i class="fa-solid fa-pen" title="Edit Address"></i>
+                <i class="fa-solid fa-trash" title="Remove Address"></i>
+            `;
+                    const editBtn = div.querySelector(".fa-pen");
+                    const delBtn = div.querySelector(".fa-trash");
+
+                    // EDIT
+                    editBtn.addEventListener("click", () => {
+                        div.innerHTML = `
+                    <input type="text" value="${a.name}" style="width:100px;margin-right:5px;">
+                    <input type="text" value="${a.address}" style="width:200px;">
+                    <button class="small-btn">Save</button>
+                    <button class="small-btn">Cancel</button>
+                `;
+                        const [nameInput, addressInput, saveBtn, cancelBtn] = div.querySelectorAll("input, button");
+                        saveBtn.addEventListener("click", () => {
+                            addresses[index].name = nameInput.value;
+                            addresses[index].address = addressInput.value;
+                            showContent(3);
+                        });
+                        cancelBtn.addEventListener("click", () => showContent(3));
+                    });
+
+                    // DELETE
+                    delBtn.addEventListener("click", () => {
+                        if (confirm("Remove this address?")) {
+                            addresses.splice(index, 1);
+                            showContent(3);
+                        }
+                    });
+
+                    contentArea.appendChild(div);
+                });
+
+                // ADD NEW ADDRESS
+                const addBtn = document.createElement("button");
+                addBtn.textContent = "Add New Address";
+                addBtn.style.marginTop = "10px";
+                addBtn.addEventListener("click", () => {
+                    const div = document.createElement("div");
+                    div.className = "item";
+                    div.innerHTML = `
+                <input type="text" placeholder="Name" style="width:100px;margin-right:5px;">
+                <input type="text" placeholder="Address" style="width:200px;">
+                <button class="small-btn">Save</button>
+                <button class="small-btn">Cancel</button>
+            `;
+                    const [nameInput, addressInput, saveBtn, cancelBtn] = div.querySelectorAll("input, button");
+                    saveBtn.addEventListener("click", () => {
+                        addresses.push({ name: nameInput.value, address: addressInput.value });
+                        showContent(3);
+                    });
+                    cancelBtn.addEventListener("click", () => showContent(3));
+                    contentArea.appendChild(div);
+                });
+                contentArea.appendChild(addBtn);
+
+            }
+
+            else if(id===4){ // Payment Methods
+    contentArea.innerHTML="<h2>Payment Methods</h2>";
+
+    paymentMethods.forEach((card, index)=>{
+        const div = document.createElement("div");
+        div.className="item";
+        div.innerHTML=`
+            <span>${card.type} - ${card.number} (Exp: ${card.expiry})</span>
+            <i class="fa-solid fa-pen" title="Edit"></i>
+            <i class="fa-solid fa-trash" title="Remove"></i>
+        `;
+        const editBtn = div.querySelector(".fa-pen");
+        const delBtn = div.querySelector(".fa-trash");
+
+        // EDIT CARD
+        editBtn.addEventListener("click", ()=>{
+            div.innerHTML=`
+                <input type="text" value="${card.type}" style="width:80px; margin-right:5px;">
+                <input type="text" value="${card.name}" style="width:120px; margin-right:5px;">
+                <input type="text" value="${card.number}" style="width:120px; margin-right:5px;">
+                <input type="text" value="${card.expiry}" style="width:60px;">
+                <button class="small-btn">Save</button>
+                <button class="small-btn">Cancel</button>
+            `;
+            const [typeInput, nameInput, numberInput, expiryInput, saveBtn, cancelBtn] = div.querySelectorAll("input, button");
+            saveBtn.addEventListener("click", ()=>{
+                paymentMethods[index].type = typeInput.value;
+                paymentMethods[index].name = nameInput.value;
+                paymentMethods[index].number = numberInput.value;
+                paymentMethods[index].expiry = expiryInput.value;
+                showContent(4);
+            });
+            cancelBtn.addEventListener("click", ()=>showContent(4));
+        });
+
+        // DELETE CARD
+        delBtn.addEventListener("click", ()=>{
+            if(confirm("Remove this payment method?")){
+                paymentMethods.splice(index,1);
+                showContent(4);
+            }
+        });
+
+        contentArea.appendChild(div);
+    });
+
+    // ADD NEW CARD
+    const addBtn = document.createElement("button");
+    addBtn.textContent="Add New Payment Method";
+    addBtn.style.marginTop="10px";
+    addBtn.addEventListener("click", ()=>{
+        const div = document.createElement("div");
+        div.className="item";
+        div.innerHTML=`
+            <input type="text" placeholder="Type" style="width:80px; margin-right:5px;">
+            <input type="text" placeholder="Name" style="width:120px; margin-right:5px;">
+            <input type="text" placeholder="Card Number" style="width:120px; margin-right:5px;">
+            <input type="text" placeholder="MM/YY" style="width:60px;">
+            <button class="small-btn">Save</button>
+            <button class="small-btn">Cancel</button>
+        `;
+        const [typeInput, nameInput, numberInput, expiryInput, saveBtn, cancelBtn] = div.querySelectorAll("input, button");
+        saveBtn.addEventListener("click", ()=>{
+            paymentMethods.push({
+                type:typeInput.value,
+                name:nameInput.value,
+                number:numberInput.value,
+                expiry:expiryInput.value
+            });
+            showContent(4);
+        });
+        cancelBtn.addEventListener("click", ()=>showContent(4));
+        contentArea.appendChild(div);
+    });
+    contentArea.appendChild(addBtn);
+}
+
+            // WISHLIST
+          else if(id===5){ // Amazon Professional Wishlist
+    contentArea.innerHTML = "<h2>Your Wishlist</h2>";
+
+    if(wishlist.length === 0){
+        contentArea.innerHTML += "<p>Your Wishlist is empty.</p>";
+        return;
+    }
+
+    wishlist.forEach((item, index)=>{
+        const div = document.createElement("div");
+        div.className = "wishlist-item";
+
+        div.innerHTML = `
+            <div class="wishlist-img">
+                <img src="${item.img}">
+            </div>
+
+            <div class="wishlist-info">
+                <h3>${item.title}</h3>
+                <div class="wishlist-seller">Sold by ${item.seller}</div>
+                <div class="wishlist-stock">${item.availability}</div>
+                <div class="wishlist-price">${item.price}</div>
+
+                <div class="wishlist-actions">
+                    <button class="move-btn">Add to Cart</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+        `;
+
+        // REMOVE FROM WISHLIST
+        div.querySelector(".delete-btn").addEventListener("click", ()=>{
+            if(confirm("Remove this item from Wishlist?")){
+                wishlist.splice(index,1);
+                showContent(5);
+            }
+        });
+
+        // MOVE TO CART
+        div.querySelector(".move-btn").addEventListener("click", ()=>{
+            cart.push(item);
+            wishlist.splice(index,1);
+            alert("Item added to cart");
+            showContent(5);
+        });
+
+        contentArea.appendChild(div);
+    });
+}
+
+            // PRIME
+            else if (id === 6) {
+                contentArea.innerHTML = "<h2>Prime Membership Benefits</h2>";
+                primeBenefits.forEach(b => {
+                    const div = document.createElement("div");
+                    div.className = "item";
+                    div.innerHTML = `<span>✔ ${b}</span>`;
+                    contentArea.appendChild(div);
+                });
+            }
+            // ORDERS
+            else if (id === 1) {
+                contentArea.innerHTML = "<h2>Your Orders</h2><p><a href='order.html'>View all orders</a></p>";
+            }
+            // LOGIN & SECURITY
+            else if (id === 2) {
+                contentArea.innerHTML = "<h2>Login & Security</h2><p><a href='login.html'>Manage login & security</a></p>";
+            }
+            // PAYMENT METHODS
+            else if (id === 4) {
+                contentArea.innerHTML = "<h2>Payment Methods</h2><p><a href='payment.html'>Manage saved payments</a></p>";
+            }
+        }
+    </script>
+</body>
+
+</html>

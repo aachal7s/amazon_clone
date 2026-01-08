@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#fff;
+    text-align:center;
+}
+
+.login-box{
+    width:350px;
+    margin:50px auto;
+    padding:50px;
+    border:1px solid #ddd;
+    text-align:left;
+    border-radius:4px;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+label{
+    font-size:13px;
+    font-weight:bold;
+}
+
+input[type="text"],
+input[type="password"]{
+    width:100%;
+    height:31px;
+    padding:3px 7px;
+    margin:6px 0 14px;
+    border:1px solid #a6a6a6;
+    border-radius:3px;
+    box-sizing:border-box;
+}
+
+input:focus{
+    outline:none;
+    border-color:#e77600;
+    box-shadow:0 0 3px rgba(228,121,17,.5);
+}
+
+/* Login Button */
+button{
+    width:100%;
+    height:31px;
+    margin:10px 0 14px;
+    background:linear-gradient(#f7dfa5,#f0c14b);
+    border:1px solid #a88734;
+    border-radius:3px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:500;
+}
+
+/* Hover effect */
+button:hover{
+    background:linear-gradient(#f5d78e,#eeb933);
+}
+
+/* Click effect */
+button:active{
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+
+.error{
+    color:red;
+    font-size:13px;
+}
+
+.success{
+    color:green;
+    font-size:13px;
+}
+
+.links{
+    margin-top:10px;
+    font-size:13px;
+}
+
+.links a{
+    color:#0066c0;
+    text-decoration:none;
+    display:block;
+    margin-top:5px;
+}
+.logo{
+    margin:20px 0;
+}
+.logo img{
+    width:160px;
+    
+    filter: invert(1);
+}
+.new-account {
+            width: 350px;
+            margin: 22px auto;
+            text-align: center;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            color: #767676;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        .divider span {
+            margin: 0 8px;
+        }
+
+        .create-btn {
+            width: 100%;
+            margin-top: 12px;
+            padding: 8px;
+            background: linear-gradient(#f7f8fa, #e7e9ec);
+            border: 1px solid #adb1b8;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .create-btn:hover {
+            background: #e7e9ec;
+        }
+</style>
+</head>
+
+<body>
+<!-- Amazon Logo -->
+<div class="logo">
+    <img src="images/amazonlogo.png" alt="Amazon">
+</div>
+<div class="login-box">
+    <h2>Log In</h2>
+
+    <label>Username</label>
+    <input type="text" id="username">
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <label>
+        <input type="checkbox" id="keepSignedIn"> Keep me signed in
+    </label>
+
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
+
+    <div class="links">
+        <a href="forgot.html">Forgot Password?</a>
+        
+    </div>
+
+     <div class="new-account">
+        <div class="divider">
+            <span>New to Amazon?</span>
+        </div>
+        <a href="signup.html"><button class="create-btn">Create your Amazon account</button></a>
+    </div>
+</div>
+
+<script>
+function login(){
+    const validUser = "admin";
+    const validPass = "admin123";
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const keepSignedIn = document.getElementById("keepSignedIn").checked;
+    const message = document.getElementById("message");
+
+    message.className = "";
+
+    // ❌ Blank field check
+    if(username === "" || password === ""){
+        message.textContent = "Username and Password cannot be blank";
+        message.className = "error";
+        return;
+    }
+
+    // ❌ Invalid username & password
+    if(username !== validUser && password !== validPass){
+        message.textContent = "Invalid username and password";
+        message.className = "error";
+        return;
+    }
+
+    // ❌ Invalid username
+    if(username !== validUser){
+        message.textContent = "Invalid username";
+        message.className = "error";
+        return;
+    }
+
+    // ❌ Invalid password
+    if(password !== validPass){
+        message.textContent = "Invalid password";
+        message.className = "error";
+        return;
+    }
+
+    // ✅ Valid login
+    message.textContent = "Login successful";
+    message.className = "success";
+
+    if(keepSignedIn){
+        localStorage.setItem("loggedInUser", username);
+    }else{
+        sessionStorage.setItem("loggedInUser", username);
+    }
+
+    // Redirect (example)
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
+

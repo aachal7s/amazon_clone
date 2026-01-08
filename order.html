@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f3f6;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: #131921;
+            color: #fff;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffa41c;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: #fff;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .filters {
+            margin-top: 10px;
+        }
+
+        .filters select {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        /* ===== ORDERS ===== */
+        .orders {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* ORDER CARD */
+        .order-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        /* ORDER HEADER */
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: #f7f9fa;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .order-header span {
+            color: #555;
+        }
+
+        /* PRODUCT ROW */
+        .product-row {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .product-row img {
+            width: 110px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h3 {
+            margin: 0 0 6px;
+            font-size: 18px;
+        }
+
+        .product-info p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        /* STATUS */
+        .status {
+            font-size: 14px;
+            font-weight: bold;
+            color: #137333;
+        }
+
+        /* ACTIONS */
+        .actions {
+            margin-top: 12px;
+        }
+
+        .actions a {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .primary {
+            background: #ffd814;
+            color: #111;
+        }
+
+        .secondary {
+            border: 1px solid #ccc;
+            color: #111;
+        }
+
+        .primary:hover {
+            background: #f7ca00;
+        }
+
+        .secondary:hover {
+            background: #f2f2f2;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            .product-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+            <div class="navlogo border">
+                <div class="logo"></div>
+            </div>
+
+            <div class="navlocation border">
+                <p class="add-1">dilver to</p>
+                <div class="icon ">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-2">India</p>
+                </div>
+            </div>
+
+            <div class="nav-search border ">
+                <select name="option1" id="option2" class="search-select">
+                    <option value="option1">All</option>
+                </select>
+
+                <input type="text" name="text" id="text" placeholder="Search Amazon" class="search-input">
+
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin">
+                <div>
+                    <p class="nav-first border">
+                        <a href="login.html">Hello,Sign in</a>
+                    </p>
+                </div>
+
+                <p class="nav-second border" id="accountToggle">
+                    Account & Lists <i class="fa-solid fa-caret-down"></i>
+                </p>
+
+                <div class="account-dropdown" id="accountDropdown">
+                    <a href="login.html" class="signin-btn">Sign in</a>
+                    <hr>
+
+                    <div class="account-links">
+                        <div>
+                            <h4>Your Lists</h4>
+                            <a href="#">Create a Wish List</a>
+                            <a href="#">Wish from Any Website</a>
+                        </div>
+
+                        <div>
+                            <h4>Your Account</h4>
+                            <a href="orders.html">Your Orders</a>
+                            <a href="#">Your Addresses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="nav-return border">
+                <p class="nav-first">
+                    <a href="order.html">Returns</a>
+                </p>
+                <p class="nav-second">
+                    <a href="order.html">& Orders</a>
+                </p>
+            </div>
+
+
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+                Cart
+            </div>
+
+            <div class="dark-toggle border" title="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+
+        </div>
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Your Orders</h1>
+        <div class="filters">
+            <select>
+                <option>Past 30 days</option>
+                <option>2025</option>
+                <option>2024</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- ORDERS -->
+    <div class="orders">
+
+        <!-- ORDER 1 -->
+        <div class="order-card">
+
+            <div class="order-header">
+                <span><strong>Order Date:</strong> 10 Jan 2026</span>
+                <span><strong>Total:</strong> ₹2,499</span>
+                <span><strong>Order ID:</strong> AMZ-984523</span>
+            </div>
+
+            <div class="product-row">
+                <img src="images/electronic_headphone.jpg">
+                <div class="product-info">
+                    <h3>Noise Wireless Headphones</h3>
+                    <p>Sold by Noise India</p>
+                    <p class="status">Delivered on 13 Jan 2026</p>
+
+                    <div class="actions">
+                        <!-- Product 1 -->
+                        <a class="primary" href="track.html?order=1">Track Package</a>
+
+
+
+                        <a class="secondary" href="buyagain.html">Buy Again</a>
+                        <a class="secondary" href="return.html">Return</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ORDER 2 -->
+        <div class="order-card">
+
+            <div class="order-header">
+                <span><strong>Order Date:</strong> 03 Jan 2026</span>
+                <span><strong>Total:</strong> ₹999</span>
+                <span><strong>Order ID:</strong> AMZ-772144</span>
+            </div>
+
+            <div class="product-row">
+                <img src="images/shoes.JPG">
+                <div class="product-info">
+                    <h3>Men's Casual Sneakers</h3>
+                    <p>Sold by Amazon Fashion</p>
+                    <p class="status">Delivered on 06 Jan 2026</p>
+
+                    <div class="actions">
+                        <!-- Product 2 -->
+                        <a class="primary" href="track.html?order=2">Track Package</a>
+
+                        <a class="secondary" href="buyagain.html"">Buy Again</a>
+                        <a class="secondary" href="return.html">Return</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

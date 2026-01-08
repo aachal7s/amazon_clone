@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now - Amazon Clone</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f3f6;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #131921;
+            color: #fff;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffa41c;
+        }
+
+        .page-header {
+            padding: 20px 40px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            width: calc(25% - 20px);
+            text-align: center;
+            transition: transform .2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 150px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            color: #111;
+            margin: 10px 0;
+        }
+
+        .product-card button {
+            background: #ffa41c;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .product-card button:hover {
+            background: #f08804;
+        }
+
+        @media (max-width:900px) {
+            .product-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width:500px) {
+            .product-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="navlogo border">
+            <div class="logo"></div>
+        </div>
+
+        <div class="navlocation border">
+            <p class="add-1">dilver to</p>
+            <div class="icon ">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="add-2">India</p>
+            </div>
+        </div>
+
+        <div class="nav-search border ">
+            <select name="option1" id="option2" class="search-select">
+                <option value="option1">All</option>
+            </select>
+
+            <input type="text" name="text" id="text" placeholder="Search Amazon" class="search-input">
+
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <div class="nav-signin">
+            <div>
+                <p class="nav-first border">
+                    <a href="login.html">Hello,Sign in</a>
+                </p>
+            </div>
+
+            <p class="nav-second border" id="accountToggle">
+                Account & Lists <i class="fa-solid fa-caret-down"></i>
+            </p>
+
+            <div class="account-dropdown" id="accountDropdown">
+                <a href="login.html" class="signin-btn">Sign in</a>
+                <hr>
+
+                <div class="account-links">
+                    <div>
+                        <h4>Your Lists</h4>
+                        <a href="#">Create a Wish List</a>
+                        <a href="#">Wish from Any Website</a>
+                    </div>
+
+                    <div>
+                        <h4>Your Account</h4>
+                        <a href="orders.html">Your Orders</a>
+                        <a href="#">Your Addresses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="nav-return border">
+            <p class="nav-first">
+                <a href="order.html">Returns</a>
+            </p>
+            <p class="nav-second">
+                <a href="order.html">& Orders</a>
+            </p>
+        </div>
+
+
+        <div class="nav-cart border">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
+            Cart
+        </div>
+
+        <div class="dark-toggle border" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+        </div>
+
+
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Buy Now</h1>
+    </div>
+
+    <!-- PRODUCTS LIST -->
+    <div class="products" id="productsContainer">
+        <!-- JS will populate products dynamically -->
+    </div>
+
+    <script>
+        // PRODUCTS DATA
+        const products = [
+            { id: 1, title: "Noise Wireless Headphones", price: "₹2,499", img: "images/electronic_headphone.jpg" },
+            { id: 2, title: "Men's Casual Sneakers", price: "₹999", img: "images/shoes.JPG" },
+            { id: 3, title: "Bluetooth Speaker", price: "₹1,299", img: "images/bluetooth_speaker.jpg" },
+            { id: 4, title: "Smart Watch", price: "₹3,499", img: "images/smart_watch.jpg" }
+        ];
+
+        // POPULATE PRODUCTS
+        const container = document.getElementById("productsContainer");
+        products.forEach(product => {
+            const card = document.createElement("div");
+            card.className = "product-card";
+            card.innerHTML = `
+        <img src="${product.img}" alt="${product.title}">
+        <h3>${product.title}</h3>
+        <p class="price">${product.price}</p>
+        <button onclick="buyNow(${product.id})">Buy Now</button>
+    `;
+            container.appendChild(card);
+        });
+
+        // BUY NOW FUNCTION
+        function buyNow(id) {
+            const product = products.find(p => p.id === id);
+            alert(`You clicked Buy Now for: ${product.title}`);
+            // You can redirect to payment page here
+            window.location.href = `payment.html?product=${id}`;
+        }
+    </script>
+</body>
+
+</html>
