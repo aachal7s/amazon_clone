@@ -44,6 +44,131 @@
 .no-hover-border:hover {
     border: none !important;
 }
+/* Overlay */
+.location-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 1000;
+    
+}
+
+/* NAVBAR ADDRESS POPUP */
+.location-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 375px;
+    background: #fff;
+    display: none;
+    z-index: 1001;
+    font-family: Arial, sans-serif;
+    color: rgb(102, 102, 102);
+    border-radius: 10px;
+}
+
+/* Header */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e6e6e6;   /* Grey background */
+    color: #fff;          /* White text */
+    padding: 12px 15px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.popup-header h2 {
+    font-size: 18px;
+    color: #000000;          /* White heading */
+    margin: 2px;
+}
+
+.close-btn {
+    font-size: 13px;
+    cursor: pointer;
+    color: black;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 5px;
+}
+.close-btn:hover {
+color: #333;
+}
+/* Text */
+.popup-text {
+    font-size: 14px;
+    margin: 20px;
+}
+
+/* Button */
+.add-address-btn {
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    border: 0;
+    background-color: white;
+    color: #0066c0;
+    display: flex;
+    justify-content: start;
+    margin: 20px;
+}
+
+.add-address-btn:hover {
+    text-decoration: underline;
+}
+
+/* OR line */
+.or-line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.or-line::before,
+.or-line::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+.or-line span {
+    padding: 0 10px;
+    font-size: 13px;
+    color: #555;
+    white-space: nowrap;
+}
+
+/* Pincode */
+.pincode-box {
+    display: flex;
+    gap: 8px;
+    margin: 20px;
+  
+}
+
+.pincode-box input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #aaa;
+     border-radius: 10px;
+}
+
+.pincode-box button {
+    padding: 8px 17px;
+    border: 1px solid #888;
+    background: #e7e9ec;
+    cursor: pointer;
+     border-radius: 20px;
+}
+
+.pincode-box button:hover {
+    background: #d5d9d9;
+}
 
 
 .signin-btn {
@@ -434,7 +559,7 @@ footer{
 .menu-main{
     display: flex;
     align-items: center;
-    
+
 }
 
 

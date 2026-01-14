@@ -4,13 +4,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon.com Spend less smile more</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-
 </head>
+<style>
+    .breadcrumb {
+        font-size: 13px;
+        margin: 20px;
+    }
+
+    .breadcrumb a {
+        color: #0066c0;
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumb span {
+        color: #555;
+        margin: 0 5px;
+    }
+
+    /* Page wrapper */
+    .account-page {
+        max-width: 1000px;
+        /* Amazon content width */
+        margin: 30px auto;
+        /* Center page */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Heading */
+    .account-page h1 {
+        font-size: 26px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    /* Address section */
+    .address-section {
+        padding-left: 20px;
+        /* Amazon left spacing */
+    }
+
+    /* Grid */
+    .address-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    /* Tile */
+    .address-tile {
+        height: 230px;
+        width: 260px;
+        background: #ffffff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    /* Add tile */
+    .add-address {
+        border: 1px dashed #c7c7c7;
+    }
+
+
+    /* Plus & text */
+    .address-plus {
+        font-size: 60px;
+        color: #c0c0c0;
+    }
+
+    .address-text {
+        font-size: 21px;
+        color: #7a7a7a;
+        font-weight: 600;
+       
+    }
+
+    /* Divider */
+.amazon-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px;
+    
+}
+
+/* Section */
+.recent-section {
+    max-width: 1000px;
+    
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.recent-section h2 {
+    font-size: 15px; 
+    color: #585858;
+    margin-bottom: 20px;
+   
+}
+
+/* Sub text */
+.recent-text {
+    font-size: 12px;
+    color: #565959;
+    line-height: 1.4;
+    font-family:Arial, Helvetica, sans-serif;
+     margin-bottom: 20px;
+}
+.address-saved {
+    background: #dff6dd;
+    border: 1px solid #2e8b57;
+    color: #007600;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+.address-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.address-tile {
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    background: #fff;
+    padding: 16px;
+    min-height: 230px; /* same height as Add Address */
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Add Address specific */
+.add-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #0066c0;
+    font-weight: 600;
+}
+
+.address-plus {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.address-text {
+    font-size: 14px;
+}
+
+</style>
 
 <body>
     <header>
@@ -250,113 +408,51 @@
         </div>
     </header>
 
-    <div class="hero-section">
-        <div class="hero-msg">
-            <p>You are on amazon.com. You can also shop on Amazon India for million of product with fast local delivery
-                <a href="#"> Click here to go on amazon.in</a>
-            </p>
+
+
+    <!-- Add Address Tile -->
+
+    <div class="account-page">
+        <div class="breadcrumb">
+            <a href="account.html">Your Account</a>
+            <span>›</span>
+            <span>Your Addresses</span>
         </div>
+
+        <div id="addressSavedMsg" class="address-saved">
+    ✓ Address saved
+</div>
+
+       
+        <div class="address-section">
+             <h1>Your Addresses</h1>
+            <div class="address-grid" id="addressGrid">
+
+                <!-- Add Address -->
+                <div class="address-tile add-address" onclick="goToAddressPage()">
+                    <div class="address-plus">+</div>
+                    <a href="new-address.html"><div class="address-text">Add address</div></a>
+                </div>
+            </div>
+        </div>
+
+       
+
     </div>
+    
+<hr class="amazon-divider">
+
+<div class="recent-section">
+    <h2>Your recently viewed items and featured recommendations</h2>
+    <p class="recent-text">
+        After viewing product detail pages, look here to find an easy way to navigate back to pages you are interested in.
+    </p>
+</div>
+
+<hr class="amazon-divider">
 
 
-    <div class="shop-section">
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=personalcare" class="category-card">
-                    <h2>Personal Care</h2>
-                    <img src="images/box1_image.jpg" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-            </div>
-        </div>
-
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=toys" class="category-card">
-                    <H2>New Arriavals In Toys</H2>
-                    <img src="images/box2.png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-
-            </div>
-        </div>
-
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=furniture" class="category-card">
-                    <H2>Furniture</H2>
-                    <img src="images/box3..png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-
-
-            </div>
-        </div>
-
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=electronics" class="category-card">
-                    <H2>Electronics</H2>
-                    <img src="images/box4.png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="shop-section">
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=beauty" class="category-card">
-
-                    <H2>Beauty Pics</H2>
-                    <img src="images/box5.png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-
-            </div>
-        </div>
-
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=petcare" class="category-card">
-                    <H2>Pets Care</H2>
-                    <img src="images/box6.png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-
-
-            </div>
-        </div>
-
-        <div class=" box">
-            <div class="box1-content">
-                <a href="products.html?category=DiscoverFashion" class="category-card">
-                    <H2>Discover fashion trends</H2>
-                    <img src="images/box1.png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-
-
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="box1-content">
-                <a href="products.html?category=clothes" class="category-card">
-                    <h2>Clothes</h2>
-                    <img src="images/image.png" class="category-img" alt="">
-                    <p class="see-more">See more</p>
-                </a>
-            </div>
-
-        </div>
-    </div>
-
-
-
-    <footer>
+<footer>
         <div class="footerpanel1">
             <p>Back to top</p>
         </div>
@@ -422,217 +518,48 @@
             </div>
         </div>
     </footer>
-
 </body>
-
 <script>
-    document.querySelector(".footerpanel1").addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-</script>
-
-<script>
-    const cart = document.querySelector(".nav-cart");
-
-    cart.addEventListener("click", () => {
-        cart.classList.add("cart-animate");
-        setTimeout(() => cart.classList.remove("cart-animate"), 400);
-    });
-</script>
-
-<script>
-    const searchInput = document.querySelector(".search-input");
-    const searchBox = document.querySelector(".nav-search");
-
-    searchInput.addEventListener("focus", () => {
-        searchBox.classList.add("search-glow");
-    });
-
-    searchInput.addEventListener("blur", () => {
-        searchBox.classList.remove("search-glow");
-    });
-</script>
-
-
-<script>
-    const toggleBtn = document.querySelector(".dark-toggle");
-    const body = document.body;
-
-    toggleBtn.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-
-        // Change icon
-        const icon = toggleBtn.querySelector("i");
-        if (body.classList.contains("dark-mode")) {
-            icon.classList.replace("fa-moon", "fa-sun");
-        } else {
-            icon.classList.replace("fa-sun", "fa-moon");
-        }
-    });
-</script>
-
-
-<script>
-    document.addEventListener("keydown", (e) => {
-        const modal = document.getElementById("productModal");
-        if (e.key === "Escape" && modal.style.display === "flex") {
-            modal.style.display = "none";
-        }
-    });
-</script>
-
-
-<script>
-    // popup modal for navbar address
-    function openLocationPopup() {
-        document.getElementById("locationPopup").style.display = "block";
-        document.getElementById("locationOverlay").style.display = "block";
+    function goToAddressPage() {
+        window.location.href = "address.html";
     }
-
-    function closeLocationPopup() {
-        document.getElementById("locationPopup").style.display = "none";
-        document.getElementById("locationOverlay").style.display = "none";
-    }
-
-    function applyPincode() {
-        const pin = document.getElementById("pincodeInput").value;
-        if (/^[1-9][0-9]{5}$/.test(pin)) {
-            document.getElementById("currentLocation").innerText = pin;
-            closeLocationPopup();
-        } else {
-            alert("Please enter a valid Indian pincode");
-        }
-    }
-
-    document.getElementById("locationOverlay").addEventListener("click", closeLocationPopup);
 </script>
+
 <script>
-    //when click go on address page
-function goToAddressPage() {
-    window.location.href = "address.html";
+document.addEventListener("DOMContentLoaded", () => {
+    const addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+    const grid = document.getElementById("addressGrid");
+
+    addresses.forEach((a, index) => {
+        const card = document.createElement("div");
+        card.className = "address-tile"; // SAME as add-address for same box style
+
+        card.innerHTML = `
+            <strong>${a.fullName}</strong><br>
+            ${a.house}<br>
+            ${a.area}<br>
+            ${a.city}, ${a.state} ${a.pincode}<br>
+            India<br><br>
+            Phone number: <strong>${a.mobile}</strong>
+            <div class="address-actions">
+                <a href="#">Add delivery instructions</a>
+                <a href="#">Edit</a>
+                <a href="#" onclick="removeAddress(${index})">Remove</a>
+                <a href="#">Set as Default</a>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+});
+
+function removeAddress(index) {
+    let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+    addresses.splice(index, 1);
+    localStorage.setItem("addresses", JSON.stringify(addresses));
+    location.reload();
 }
 </script>
-
-<script>
-
-    const products = [
-        {
-            title: "Health & Personal Care",
-            price: "₹999",
-            desc: "High-quality health and personal care products for everyday use.",
-            img: "images/box2.png"
-        },
-        {
-            title: "New Arrivals in Toys",
-            price: "₹1,499",
-            desc: "Latest toys designed for fun, creativity, and learning.",
-            img: "images/box1.png"
-        },
-        {
-            title: "Furniture",
-            price: "₹7,999",
-            desc: "Modern and durable furniture for your home and office.",
-            img: "images/box3..png"
-        },
-        {
-            title: "Electronics",
-            price: "₹19,999",
-            desc: "Top branded electronics with latest technology.",
-            img: "images/box4.png"
-        }
-    ];
-
-    const modal = document.getElementById("productModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalPrice = document.getElementById("modalPrice");
-    const modalDesc = document.getElementById("modalDesc");
-    const closeBtn = document.querySelector(".close-btn");
-
-    const boxes = document.querySelectorAll(".box");
-
-    boxes.forEach((box, index) => {
-        box.querySelector(".see-more").addEventListener("click", () => {
-            modalImg.src = products[index].img;
-            modalTitle.textContent = products[index].title;
-            modalPrice.textContent = products[index].price;
-            modalDesc.textContent = products[index].desc;
-            modal.style.display = "flex";
-        });
-    });
-
-    closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-</script>
-
-<script>
-    const addCartBtn = document.querySelector(".add-cart-btn");
-
-    // success message
-    const successMsg = document.createElement("div");
-    successMsg.className = "cart-success";
-    successMsg.textContent = "✔ Item added to cart";
-    document.querySelector(".modal-content").appendChild(successMsg);
-
-    addCartBtn.addEventListener("click", () => {
-        // cart count increase
-        const cartCountEl = document.querySelector(".cart-count");
-        cartCountEl.textContent = Number(cartCountEl.textContent) + 1;
-
-        // success animation
-        successMsg.classList.add("show");
-
-        setTimeout(() => {
-            successMsg.classList.remove("show");
-        }, 1500);
-    });
-</script>
-
-
-<script>
-    function openMenu() {
-        document.getElementById("megaMenu").classList.add("open");
-        document.getElementById("menuOverlay").classList.add("show");
-    }
-
-    function closeMenu() {
-        document.getElementById("megaMenu").classList.remove("open");
-        document.getElementById("menuOverlay").classList.remove("show");
-    }
-
-    document.getElementById("menuOverlay").addEventListener("click", closeMenu);
-</script>
-
-function closeMenu() {
-document.getElementById("megaMenu").classList.remove("open");
-document.getElementById("menuOverlay").classList.remove("show");
-}
-
-<script>
-    const accountToggle = document.getElementById("accountToggle");
-    const accountDropdown = document.getElementById("accountDropdown");
-
-    accountToggle.addEventListener("click", (e) => {
-        e.stopPropagation(); // prevents body click
-        accountDropdown.style.display =
-            accountDropdown.style.display === "block" ? "none" : "block";
-    });
-
-    document.addEventListener("click", () => {
-        accountDropdown.style.display = "none";
-    });
-</script>
-
 
 
 </html>
